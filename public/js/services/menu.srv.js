@@ -2,7 +2,7 @@ angular.module ('dft')
   .factory ('menuPicker', [
   'helpers'
   , function (help) {
-    "use strict";
+    'use strict';
     var menus = {};
 
     function validateLink(link) {
@@ -76,18 +76,18 @@ angular.module ('dft')
     }
 
     menus.main = new Menu ({
-                             id: 'main'
-                             , list: [
-        ["map", "map"]
-        , ["data", "data"]
-        , ["contribute", "contribute", [
-          ["$", "money"]
-          , ["info", "info"]
-          , ["code", "code"]]
+      id: 'main'
+    , list: [
+          ['map', 'map']
+        , ['data', 'data']
+        , ['contribute', 'contribute', [
+            ['$', 'money']
+          , ['info', 'info']
+          , ['code', 'code']]
         ]
-        , ["contact", "contact"]
+        , ['contact', 'contact']
       ]
-                           });
+    });
 
     return function (menuId) {
       if (menus[menuId]) {

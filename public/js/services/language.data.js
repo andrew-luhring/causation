@@ -1,8 +1,8 @@
 angular.module ('dft').service ('languageData', ['$sce', '$compile', function ($sce, $compile) {
-  "use strict";
+  'use strict';
   var text = {};
   return {
-    intro: "derp"
+    intro: 'derp'
   };
 
 }]);

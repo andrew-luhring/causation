@@ -3,7 +3,7 @@ angular.module ('dft')
   '$scope',
   'menuPicker',
   function ($scope, menuPicker) {
-    "use strict";
+    'use strict';
     var menuInstance = menuPicker ($scope.instance);
     this.links = menuInstance.list;
   }]);

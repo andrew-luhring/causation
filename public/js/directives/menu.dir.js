@@ -1,6 +1,6 @@
 angular.module ('dft')
   .directive ('rooMenu', [function () {
-  "use strict";
+  'use strict';
   return {
     scope: {
       instance: '@'
