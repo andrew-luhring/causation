@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="http://localhost:5000/" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="/lib/modernizr.js"></script>
+	<link rel="stylesheet" href="/css/style.css" />
+
+	<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmknzsq7j-1a-nBCvXTUJcSCsuByPW2cw&libraries=drawing&sensor=false"></script>-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmknzsq7j-1a-nBCvXTUJcSCsuByPW2cw&sensor=true"></script>
+	<script src="/lib/jquery/dist/jquery.js" async></script>
+	<script src="/lib/lodash/dist/lodash.js" async></script>
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular-sanitize/angular-sanitize.js"></script>
+	<script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<style >
+
+
+	</style >
+</head>
+<body ng-app="dft">
+
+
+<header role=”banner”>
+	<nav class="top_nav" role="navigation">
+		<roo-menu class="top-nav" instance="main"></roo-menu>
+	</nav>
+</header>
+<main class="main" role="main">
+	<ui-view></ui-view>
+</main>
+
+
+<section role="dialog" >
+	<aside role="complementary">
+		<roo-input></roo-input>
+	</aside>
+</section>
+
+<footer role="contentinfo">
+
+</footer>
+
+<script src="/js/script.js"></script>
+<script src="/js/services/language.data.js"></script>
+<script src="/js/services/helpers.srv.js"></script>
+<script src="/js/controllers/global.ctrl.js"></script>
+
+<script src="/js/controllers/menu.ctrl.js"></script>
+<script src="/js/directives/menu.dir.js"></script>
+<script src="/js/services/menu.srv.js"></script>
+
+<script src="/js/services/map.srv.js"></script >
+<script src="/js/controllers/map.ctrl.js"></script >
+<script src="/js/directives/map.dir.js"></script >
+
+<script src="/js/directives/global.dir.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "accessible",
+  "version": "1.0.0",
+  "authors": [
+    "andrew-luhring <andrew.luhring@gmail.com>"
+  ],
+  "main": "public/main.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.*",
+    "angular-mocks": "*",
+    "angular-ui-router": "*",
+    "jquery": "~2.1.*",
+    "lodash": "~2.4.*",
+    "modernizr": "~2.8.*",
+    "angular-sanitize": "~1.4.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "*"
+  }
+}
