@@ -8,13 +8,19 @@
         "try",
         "catch"
     ],
-    "requireOperatorBeforeLineBreak": true,
+    "requireOperatorBeforeLineBreak": [
+      "?", "=", "+", "-", "/", "*",
+      "=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=",
+      "&=", "|=", "^=", "+=",
+      "+", "-", "*", "/", "%", "<<", ">>", ">>>", "&",
+      "|", "^", "&&", "||", "===", "==", ">=",
+      "<=", "<", ">", "!=", "!=="
+    ],
     "requireCamelCaseOrUpperCaseIdentifiers": true,
     "maximumLineLength": {
       "value": 120,
       "allExcept": ["comments", "regex"]
     },
-    "validateIndentation": 2,
     "validateQuoteMarks": {
       "mark": "'",
       "escape": true
@@ -24,7 +30,7 @@
     "disallowMixedSpacesAndTabs": true,
     "disallowTrailingWhitespace": true,
     "disallowSpaceAfterPrefixUnaryOperators": true,
-    "disallowMultipleVarDecl": false,
+    "disallowMultipleVarDecl": null,
     "disallowKeywordsOnNewLine": ["else"],
 
     "requireSpaceAfterKeywords": [
@@ -60,7 +66,6 @@
     "disallowSpacesInsideObjectBrackets": "all",
     "disallowSpacesInsideArrayBrackets": "all",
     "disallowSpacesInsideParentheses": true,
-
     "disallowMultipleLineBreaks": true,
     "disallowNewlineBeforeBlockStatements": true,
     "disallowKeywords": ["with"],
@@ -75,5 +80,8 @@
     "requireSpaceBeforeObjectValues": true,
     "requireCapitalizedConstructors": true,
     "requireDotNotation": true,
-    "validateParameterSeparator": ", "
+    "validateParameterSeparator": ", ",
+
+    "disallowCommaBeforeLineBreak": true,
+    "requireCommaBeforeLineBreak": null
 }

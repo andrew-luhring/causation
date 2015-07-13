@@ -1,5 +1,5 @@
-angular.module ('dft')
-	.controller ('GlobalController', ['$scope','languageData', function ($scope, data) {
+angular.module('dft')
+	.controller('GlobalController', ['$scope', 'languageData', function($scope, data) {
 	'use strict';
 
 	$scope.globalCtrl = this;

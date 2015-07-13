@@ -1,5 +1,5 @@
-angular.module ('dft')
-  .directive ('rooMenu', [function () {
+angular.module('dft')
+  .directive('rooMenu', [function() {
   'use strict';
   return {
     scope: {

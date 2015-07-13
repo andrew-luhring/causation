@@ -1,4 +1,5 @@
-angular.module ('dft').service ('languageData', ['$sce', '$compile', function ($sce, $compile) {
+angular.module('dft')
+  .service('languageData', ['$sce', '$compile', function($sce, $compile) {
   'use strict';
   var text = {};
   return {

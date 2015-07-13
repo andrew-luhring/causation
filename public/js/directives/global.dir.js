@@ -1,5 +1,5 @@
-angular.module ('dft')
-  .directive ('global', function () {
+angular.module('dft')
+  .directive('global', function() {
   'use strict';
   return {
     scope: {

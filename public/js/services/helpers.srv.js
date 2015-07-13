@@ -1,6 +1,6 @@
-angular.module ('dft')
-  .service ('helpers', [
-  function () {
+angular.module('dft')
+  .service('helpers', [
+  function() {
     'use strict';
     function Helpers() {
       this.constructor = Helpers;

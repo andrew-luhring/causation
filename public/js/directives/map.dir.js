@@ -1,5 +1,5 @@
-angular.module ('dft')
-  .directive ('rooMap', [function () {
+angular.module('dft')
+  .directive('rooMap', [function() {
   'use strict';
 
   return {

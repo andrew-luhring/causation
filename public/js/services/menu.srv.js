@@ -1,30 +1,30 @@
-angular.module ('dft')
-  .factory ('menuPicker', [
+angular.module('dft')
+  .factory('menuPicker', [
   'helpers'
-  , function (help) {
+  , function(help) {
     'use strict';
     var menus = {};
 
     function validateLink(link) {
-      if (_.isObject (link)) {
-        if (help.checkInstance (link, Link) !== true) {
+      if (_.isObject(link)) {
+        if (help.checkInstance(link, Link) !== true) {
           return new Link (arguments[0]);
         }
         return link;
       } else {
-        console.warn (link);
+        console.warn(link);
         throw new TypeError ('passed a non-link to Menu constructor...');
       }
     }
 
     function validateList(list) {
       var arr = [];
-      if (_.isArray (list) !== true) {
+      if (_.isArray(list) !== true) {
         return [];
       }
-      _.each (list, function (val) {
-        var link = validateLink (val);
-        arr.push (link);
+      _.each(list, function(val) {
+        var link = validateLink(val);
+        arr.push(link);
       });
       return arr;
     }
@@ -32,7 +32,7 @@ angular.module ('dft')
     function Link(text, id, arg) {
       var accessor = this;
       var arr = [];
-      if (_.isArray (text)) {
+      if (_.isArray(text)) {
         id = text[1];
         arg = text[2];
         text = text[0];
@@ -42,42 +42,42 @@ angular.module ('dft')
       }
       this.id = id;
       this.text = text;
-      this.parent = function () {
+      this.parent = function() {
         return (typeof arg === 'string') ? arg : '/';
-      } ();
+      }();
       this.constructor = Link;
       (function initLink() {
         accessor.url = id;
-        if (_.isArray (arg) === true) {
-          _.each (arg, function (val) {
+        if (_.isArray(arg) === true) {
+          _.each(arg, function(val) {
             var child = new Link (val[0], val[1], id);
             child.url = id + '.' + child.url;
-            arr.push (child);
+            arr.push(child);
           });
         }
         accessor.children = arr;
-      }) ();
+      })();
     }
 
     function Menu(obj) {
       var accessor = this;
-      if (_.isObject (obj) === false || obj === null) {
-        console.warn (obj);
-        throw new TypeError ('passed a non-object to Menu constructor...');
+      if (_.isObject(obj) === false || obj === null) {
+        console.warn(obj);
+        throw new TypeError('passed a non-object to Menu constructor...');
       }
-      _.each (obj, function (val, key) {
+      _.each(obj, function(val, key) {
         if (key !== 'list') {
           accessor[key] = val;
         }
       });
 
-      this.list = validateList (obj.list);
+      this.list = validateList(obj.list);
       this.constructor = Menu;
     }
 
-    menus.main = new Menu ({
+    menus.main = new Menu({
       id: 'main'
-    , list: [
+      , list: [
           ['map', 'map']
         , ['data', 'data']
         , ['contribute', 'contribute', [
@@ -89,10 +89,10 @@ angular.module ('dft')
       ]
     });
 
-    return function (menuId) {
+    return function(menuId) {
       if (menus[menuId]) {
         return menus[menuId];
       }
-      console.warn ('no menu exists with id of: ' + menuId);
+      console.warn('no menu exists with id of: ' + menuId);
     };
   }]);

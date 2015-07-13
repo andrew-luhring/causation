@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 var test = false;
-angular.module ('dft', ['ngSanitize', 'ui.router'])
-  .config (['$stateProvider', '$urlRouterProvider', '$httpProvider'
-  , function ($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module('dft', ['ngSanitize', 'ui.router'])
+  .config(['$stateProvider', '$urlRouterProvider', '$httpProvider'
+  , function($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-  $stateProvider.state ('loggedIn', {
+  $stateProvider.state('loggedIn', {
     url: '/'
   , controller: 'GlobalController'
   , controllerAs: 'global'
@@ -16,7 +16,7 @@ angular.module ('dft', ['ngSanitize', 'ui.router'])
   , url: 'home'
   })
   .state('map', {
-    template: "<roo-map></roo-map>"
+    template: '<roo-map></roo-map>'
   , url: '/map'
   })
   .state('about', {
@@ -32,8 +32,8 @@ angular.module ('dft', ['ngSanitize', 'ui.router'])
   , url: '/login'
   })
   .state('contact', {
-    url: "/contact"
-  , templateUrl: "/views/partials/contact.hml"
+    url: '/contact'
+  , templateUrl: '/views/partials/contact.hml'
   })
   .state('contribute', {
     templateUrl: '/views/partials/contribute.html'
@@ -49,6 +49,6 @@ angular.module ('dft', ['ngSanitize', 'ui.router'])
     url: '/code'
   });
 
-  $urlRouterProvider.otherwise('/');
-}]);
+    $urlRouterProvider.otherwise('/');
+  }]);
 
