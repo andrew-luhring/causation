@@ -1,5 +1,5 @@
 /*jshint expr: true, strict: false*/
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   var ASSETS_DIR = './public/'
     , STYLE_DIR = ASSETS_DIR + 'css/'
@@ -11,11 +11,12 @@ module.exports = function (grunt) {
     , frontendF = JS_DIR + '**/*.js'
     , backendF = ['./*.js', './config/*.js']
     , testF = TEST_DIR + '_*.js'
-    , lesscmd = 'node ./node_modules/.bin/lessc --source-map-map-inline --source-map --source-map-rootpath=../less/ ' + lessF + ' ' + cssF
+    , lesscmd = 'node ./node_modules/.bin/lessc --source-map-map-inline --source-map --source-map-rootpath=../less/ ' +
+      lessF + ' ' + cssF
     , karmaCmd = 'node ./node_modules/.bin/karma config/karma.conf.js'
     , coverageCmd = 'node ./node_modules/.bin/karma config/test.coverage.js'
     , config = {
-        pkg: grunt.file.readJSON ('package.json')
+        pkg: grunt.file.readJSON('package.json')
       , exec: {
           less: lesscmd
         , karma: karmaCmd
@@ -58,6 +59,11 @@ module.exports = function (grunt) {
               src: testF
             }
           }
+        , all: {
+            files: {
+              src: [frontendF, backendF, testF]
+            }
+          }
         , options: {
             config: '.jscsrc'
           , fix: false
@@ -66,15 +72,18 @@ module.exports = function (grunt) {
         }
       , watch: {}
       };
-
-  grunt.initConfig (config);
-  grunt.loadNpmTasks ('grunt-exec');
-  grunt.loadNpmTasks ('grunt-contrib-jshint');
-  grunt.loadNpmTasks ('grunt-contrib-clean');
-  grunt.loadNpmTasks ('grunt-contrib-watch');
-  grunt.loadNpmTasks ('grunt-jscs');
-  grunt.registerTask ('verify', ['jshint']);
-  grunt.registerTask ('_watch', 'config a watch command', function () {
+  grunt.initConfig(config);
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-jscs');
+  grunt.registerTask('verify', ['jshint']);
+  grunt.registerTask('fix-js', function() {
+    config.jscs.options.fix = true;
+    grunt.task.run('jscs:all');
+  });
+  grunt.registerTask('_watch', 'config a watch command', function() {
     config.watch = {
       backend: {
         files: backendF
@@ -114,7 +123,7 @@ module.exports = function (grunt) {
       , files: [cssF]
       }
     };
-    grunt.task.run ('watch');
+    grunt.task.run('watch');
   });
-  grunt.registerTask ('default', ['_watch']);
+  grunt.registerTask('default', ['_watch']);
 };

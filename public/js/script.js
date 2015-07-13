@@ -51,4 +51,3 @@ angular.module('dft', ['ngSanitize', 'ui.router'])
 
     $urlRouterProvider.otherwise('/');
   }]);
-

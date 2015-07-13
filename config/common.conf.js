@@ -1,4 +1,4 @@
-var files = require ('./files.js');
+var files = require('./files.js');
 
 module.exports = {
   basePath: '../'
@@ -11,10 +11,10 @@ module.exports = {
 , coverageReporter: {
     type: 'html'
   , dir: './tests/coverage/'
-  , subdir: function (browser) {
-      "use strict";
+  , subdir: function(browser) {
+      'use strict';
       //normalize browser directory names
-      return browser.toLowerCase ().split (/[ /-]/)[0];
+      return browser.toLowerCase().split(/[ /-]/)[0];
     }
   }
 //preprocessors: {
