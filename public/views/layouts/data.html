@@ -1,0 +1,110 @@
+<form class="signup " >
+  <fieldset class="form-group form-group-lg">
+    <legend>Your Name</legend>
+    <label>
+      <span class="blind">First name.</span>
+      <input type="text"
+        placeholder="First Name"
+      />
+    </label>
+    <label>
+      <span class="blind">Last name.</span>
+      <input type="text"
+        placeholder="Last Name"
+      />
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Your Contact Info</legend>
+    <label>
+      <span class="blind">Email.</span>
+      <input placeholder="Email" type="email" />
+    </label>
+    <div>
+      <label>
+        <span>Phone Number</span>
+        <input placeholder="Phone number" type="tel"/>
+      </label>
+      <fieldset>
+        <legend>Type of Phone</legend>
+        <label>
+          <span>Cell</span>
+          <input type="radio"/>
+        </label>
+        <label>
+          <span>Landline</span>
+          <input type="radio"/>
+        </label>
+      </fieldset>
+      <fieldset>
+          <legend>Type of Number</legend>
+        <label>
+          <span>Home</span>
+          <input type="radio"/>
+        </label>
+        <label>
+          <span>Work</span>
+          <input type="radio"/>
+        </label>
+        <label>
+          <span>Mobile</span>
+          <input type="radio"/>
+        </label>
+      </fieldset>
+    </div>
+    <fieldset>
+      <legend>Address</legend>
+      <label>
+        Street
+        <input ng-model="address.street" type="text"/>
+      </label>
+      <label>
+        Unit
+        <input ng-model="address.unit" type="text"/>
+      </label>
+      <label>
+        City
+        <input ng-model="address.city" type="text"/>
+      </label>
+      <label>
+        Postal Code
+        <input ng-model="address.postal" ng-blur="address.getState()" type="text" />
+      </label>
+      <output>
+        <div>{{ address.street }}</div>
+        <div>{{ address.unit }}</div>
+        <div>
+          <span>{{ address.city }}</span>
+          <span>{{ address.state }}</span>
+        </div>
+      </output>
+    </fieldset>
+  </fieldset>
+  <fieldset>
+    <legend>Are you the person with Azlheimers?</legend>
+    <label><span>No.</span> <input ng-model="person.isPatient" type="checkbox" /></label>
+    <div ng-if="person.isPatient">
+      <fieldset>
+        <legend>What is your relationship to the patient?</legend>
+        <select name="relationship"
+                id="relationship" >
+          <option value="doctor" >Doctor</option >
+          <option value="parent" >Parent</option >
+          <option value="sibling" >Sibling</option >
+          <option value="child" >Child</option >
+          <option value="grandchild" >Grand-child</option >
+          <option value="greatgrandchild" >Great-grand-child</option >
+          <option value="friend">Friend</option >
+          <option value="none">None of the above</option >
+        </select >
+      </fieldset>
+
+      <fieldset>
+        <legend>Is the person still living?</legend>
+        <label><span>Yes</span><input ng-model="person.alive" ng-value="true" type="radio"/></label>
+        <label><span>No</span> <input ng-model="person.alive" ng-value="false" type="radio"/></label>
+        <div ng-if="person.alive === false">Sorry to hear that.</div>
+      </fieldset>
+    </div>
+  </fieldset>
+</form >

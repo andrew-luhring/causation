@@ -1,8 +1,25 @@
+//
+/*
+need to allow input of data
+-> angular
+
+-[ ] need to stylize the form
+  -> bootstrap
+  need to create form wording
+    -> text file
+
+
+need to store the data
+  -> mongo
+
+
+ */
+
 angular.module('dft')
   .controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
   'use strict';
   var accessor = this;
-  var home = new google.maps.LatLng(41.888281, -87.646572);
+  var home = new google.maps.LatLng(0,0);
   var mapOptions = {
       center: home
     ,	zoom: 1
@@ -11,8 +28,12 @@ angular.module('dft')
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+
+
+
+
   this.map = map;
-  this.address = '365 North Halsted Street, Chicago, IL, 60661';
+  this.address = '';
 
   function triggerError(response, err) {
     console.log(response);
@@ -34,6 +55,7 @@ angular.module('dft')
         , draggable: true
         , animation: google.maps.Animation.DROP
         });
+        map.setCenter(position);
         map.setZoom(15);
       } else {
         triggerError(res, status);
