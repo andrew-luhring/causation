@@ -1,0 +1,40 @@
+<fieldset>
+  <legend>{{ person.identity }} Contact Info</legend>
+  <label>
+    <span class="blind">Email.</span>
+    <input placeholder="Email" type="email" />
+  </label>
+  <div class="wrapper column">
+    <label>
+      <span class="blind">Phone Number</span>
+      <input placeholder="Phone number" type="tel"/>
+    </label>
+    <fieldset class="wrapper column">
+      <legend>Type of Phone</legend>
+      <label>
+        <span>Cell</span>
+        <input ng-model="phone.type" name="phone-type" type="radio"/>
+      </label>
+      <label>
+        <span>Landline</span>
+        <input ng-model="phone.type" name="phone-type" type="radio"/>
+      </label>
+    </fieldset>
+    <fieldset class="wrapper column">
+      <legend>Type of Number</legend>
+      <label>
+        <span>Home</span>
+        <input ng-model="phone.context" name="phone-context" type="radio"/>
+      </label>
+      <label>
+        <span>Work</span>
+        <input ng-model="phone.context" name="phone-context" type="radio"/>
+      </label>
+      <label>
+        <span>Mobile</span>
+        <input ng-model="phone.context" name="phone-context" type="radio"/>
+      </label>
+    </fieldset>
+  </div>
+  <address model="address"></address>
+</fieldset>

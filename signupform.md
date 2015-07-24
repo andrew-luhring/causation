@@ -6,4 +6,4 @@
 
 
 
-- [ ]  are you the person you're filling in data about
+- [x]  are you the person you're filling in data about

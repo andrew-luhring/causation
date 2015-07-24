@@ -1,0 +1,27 @@
+<fieldset class="wrapper column">
+  <legend>Address</legend>
+  <label>
+    <span class="blind">Street</span>
+    <input placeholder="Street" ng-model="address.street" type="text"/>
+  </label>
+  <label>
+    <span class="blind">Unit</span>
+    <input placeholder="Unit" ng-model="address.unit" type="text"/>
+  </label>
+  <label>
+    <span class="blind">City</span>
+    <input placeholder="City" ng-model="address.city" type="text"/>
+  </label>
+  <label>
+    <span class="blind">Postal Code</span>
+    <input placeholder="Postal Code" ng-model="address.postal" ng-blur="address.getState()" type="text" />
+  </label>
+  <output>
+    <div>{{ address.street }}</div>
+    <div>{{ address.unit }}</div>
+    <div>
+      <span>{{ address.city }}</span>
+      <span>{{ address.state }}</span>
+    </div>
+  </output>
+</fieldset>
