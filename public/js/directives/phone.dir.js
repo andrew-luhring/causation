@@ -25,14 +25,12 @@ angular.module('dft').directive('phone', function() {
          var start = str.slice(0,3);
          var mid = str.slice(3,6);
          var end = str.slice(6);
-
          if(str[3] !== " "){
           start = start + " ";
          }
          if(str[7] !== " "){
            mid = mid + " ";
          }
-
          str = start + mid + end;
        }
 

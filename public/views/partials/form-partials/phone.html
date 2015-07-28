@@ -5,7 +5,9 @@
            type="tel"
            ng-model="phone.modelobj.phone.number"
            ng-required="true"
+           ng-pattern="/^[0-9 -]+$/"
            ng-change="phone.formatNumber()"
+           maxlength="12"
            name="{{ phone.label }}-phone" />
   </label >
   <section class="wrapper column" >
