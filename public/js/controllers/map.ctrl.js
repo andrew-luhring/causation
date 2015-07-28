@@ -28,10 +28,7 @@ angular.module('dft')
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-
-
-
-
+  this.latlong = '';
   this.map = map;
   this.address = '';
 
@@ -49,6 +46,13 @@ angular.module('dft')
       if (status === 'OK') {
         coords = res[0].geometry.location;
         position = new google.maps.LatLng(coords.A, coords.F);
+        accessor.latlong = position;
+
+        if($scope.$$phase !== '$apply'){
+          $scope.$apply()
+        }
+        console.log (position);
+
         var newMarker = new google.maps.Marker({
           map: map
         , position: position

@@ -2,19 +2,21 @@
   <legend>Address</legend>
   <label>
     <span class="blind">Street</span>
-    <input placeholder="Street" ng-model="address.street" type="text"/>
+    <input placeholder="Street" ng-model="address.modelobj.address.street" ng-required="true" type="text"/>
   </label>
   <label>
     <span class="blind">Unit</span>
-    <input placeholder="Unit" ng-model="address.unit" type="text"/>
+    <input placeholder="Unit" ng-model="address.modelobj.address.unit" type="text"/>
   </label>
   <label>
     <span class="blind">City</span>
-    <input placeholder="City" ng-model="address.city" type="text"/>
+    <input placeholder="City" ng-model="address.modelobj.address.city" ng-required="true" type="text"/>
   </label>
   <label>
     <span class="blind">Postal Code</span>
-    <input placeholder="Postal Code" ng-model="address.postal" ng-blur="address.getState()" type="text" />
+    <input placeholder="Postal Code" ng-model="address.modelobj.address.postal" ng-required="true" ng-blur="address.getState
+    ()" type="te
+    xt" />
   </label>
   <output>
     <div>{{ address.street }}</div>

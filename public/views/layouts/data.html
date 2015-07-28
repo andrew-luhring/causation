@@ -13,92 +13,89 @@
   .column{
   flex-direction: column;
   }
+  .signup .ng-invalid.ng-touched {
+    border-color: #FA787E;
+    border-style: solid;
+  }
 </style >
-<form class="signup wrapper column" >
-  <fieldset class="form-group wrapper column">
-    <legend>Your Name</legend>
-    <label>
-      <span class="blind">First name.</span>
-      <input type="text" placeholder="First Name" />
-    </label>
-    <label>
-      <span class="blind">Last name.</span>
-      <input type="text" placeholder="Last Name" />
-    </label>
-  </fieldset>
-  <fieldset>
-    <legend>{{ person.identity }} Contact Info</legend>
-    <label>
-      <span class="blind">Email.</span>
-      <input placeholder="Email" type="email" />
-    </label>
-    <div class="tooltip">
-      <p>We only want to know for confirmation purposes, if you <em>want</em> to sign up for our newsletter, there is a
-       different place to fill that out. </p>
-    </div>
-    <div class="wrapper column">
+<section>
+  <h1>Here's what we need.</h1>
+  <form name="signup" class="signup wrapper column" novalidate >
+    <fieldset class="form-group wrapper column">
+      <legend>Your Name</legend>
       <label>
-        <span class="blind">Phone Number</span>
-        <input placeholder="Phone number" type="tel"/>
+        <span class="blind">First name.</span>
+        <input type="text" placeholder="First Name" ng-model="signupctrl.person.firstname" name="firstname"
+               ng-required="true" />
       </label>
-      <fieldset class="wrapper column">
-        <legend>Type of Phone</legend>
-        <label>
-          <span>Cell</span>
-          <input ng-model="phone.type" name="phone-type" type="radio"/>
-        </label>
-        <label>
-          <span>Landline</span>
-          <input ng-model="phone.type" name="phone-type" type="radio"/>
-        </label>
-      </fieldset>
-      <fieldset class="wrapper column">
-          <legend>Type of Number</legend>
-        <label>
-          <span>Home</span>
-          <input ng-model="phone.context" name="phone-context" type="radio"/>
-        </label>
-        <label>
-          <span>Work</span>
-          <input ng-model="phone.context" name="phone-context" type="radio"/>
-        </label>
-        <label>
-          <span>Mobile</span>
-          <input ng-model="phone.context" name="phone-context" type="radio"/>
-        </label>
-      </fieldset>
-    </div>
-
-    <address model="address"></address>
-  </fieldset>
-  <fieldset>
-    <legend>Are you the person with the illness?</legend>
-    <label><span>No.</span> <input ng-model="person.isPatient" type="checkbox" /></label>
-    <div ng-if="person.isPatient">
-      <fieldset>
-        <legend>What is your relationship to the patient?</legend>
-        <select name="relationship" id="relationship" >
-          <option value="doctor" >Doctor</option >
-          <option value="parent" >Parent</option >
-          <option value="sibling" >Sibling</option >
-          <option value="child" >Child</option >
-          <option value="grandchild" >Grand-child</option >
-          <option value="greatgrandchild" >Great-grand-child</option >
-          <option value="friend">Friend</option >
-          <option value="none">None of the above</option >
-        </select >
-      </fieldset>
-      <fieldset class="form-group wrapper column">
-        <legend>Is the person still living?</legend>
-        <label><span>Yes</span><input ng-model="person.alive" ng-value="true" type="radio"/></label>
-        <label><span>No</span> <input ng-model="person.alive" ng-value="false" type="radio"/></label>
-        <div ng-if="person.alive === false">Sorry to hear that.</div>
-        <fieldset ng-if="person.alive === true">
-            <legend>Please enter their contact information.</legend>
-            <address model="person"></address>
+      <label>
+        <span class="blind">Last name.</span>
+        <input type="text" placeholder="Last Name" ng-model="signupctrl.person.lastname" name="lastname" required />
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Your Contact Info</legend>
+      <label>
+        <span class="blind">Email.</span>
+        <input placeholder="Email" type="email" name="email" ng-model="signupctrl.person.email" ng-required="true" />
+      </label>
+      <div class="tooltip">
+        <p>We only want to know for confirmation purposes, if you <em>want</em> to sign up for our newsletter, there is a
+         different place to fill that out. </p>
+      </div>
+      <phone modelobj="signupctrl.person" label="person"></phone>
+      <address modelobj="signupctrl.person" label="person"></address>
+    </fieldset>
+    <fieldset>
+      <legend>Are you the person with the illness?</legend>
+      <label><span>No.</span> <input ng-model="signupctrl.person.isPatient" ng-value="{{true}}" type="checkbox" /></label>
+      <div ng-if="signupctrl.person.isPatient">
+        <fieldset>
+          <legend>What is your relationship to the patient?</legend>
+          <select ng-model="signupctrl.person.relationship" name="relationship" id="relationship" ng-required="true" >
+            <option ></option >
+            <option value="doctor" >Doctor</option >
+            <option value="parent" >Parent</option >
+            <option value="sibling" >Sibling</option >
+            <option value="child" >Child</option >
+            <option value="grandchild" >Grand-child</option >
+            <option value="greatgrandchild" >Great-grand-child</option >
+            <option value="friend">Friend</option >
+            <option value="none">None of the above</option >
+          </select >
         </fieldset>
-      </fieldset>
-    </div>
-  </fieldset>
-  <button class="btn btn-default">Submit</button>
-</form >
+        <fieldset class="form-group wrapper column">
+          <legend>Is the person still living?</legend>
+          <label><span>Yes</span>
+            <input ng-model="signupctrl.person.alive" ng-required="!signupctrl.person.alive" ng-value="true" type="radio"/></label>
+          <label><span>No</span>
+            <input ng-model="signupctrl.person.alive" ng-required="!signupctrl.person.alive" ng-value="false" type="radio"/></label>
+          <div ng-if="signupctrl.person.alive === false">Sorry to hear that.</div>
+          <section ng-if="signupctrl.person.alive === true">
+            <h1>Their Contact Info.</h1>
+            <small>(or the contact information of the <a href="#">authorized</a> person where we can verify
+            their information.)</small>
+
+            <fieldset class="form-group wrapper column">
+              <legend>Their Name</legend>
+              <label>
+                <span class="blind">First name.</span>
+                <input type="text" placeholder="First Name" ng-model="signupctrl.patient.firstname" name="firstname"
+                       ng-required="true" />
+              </label>
+              <label>
+                <span class="blind">Last name.</span>
+                <input type="text" placeholder="Last Name" ng-model="signupctrl.patient.lastname" name="lastname" required />
+              </label>
+            </fieldset>
+
+            <phone label="patient" modelobj="signupctrl.patient"></phone>
+            <address label="patient" modelobj="signupctrl.patient"></address>
+          </section>
+        </fieldset>
+      </div>
+    </fieldset>
+    {{signupctrl }}
+    <button ng-disabled="signup.$invalid" class="btn btn-default">Submit</button>
+  </form >
+</section>
