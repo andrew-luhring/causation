@@ -15,8 +15,7 @@ need to store the data
 
  */
 
-angular.module('dft')
-  .controller('MapCtrl', ['$scope', '$http', function($scope, $http) {
+angular.module('dft').controller('MapCtrl', ['$scope', 'MapService', function($scope, MapService) {
   'use strict';
   var accessor = this;
   var home = new google.maps.LatLng(0,0);
@@ -32,6 +31,8 @@ angular.module('dft')
   this.map = map;
   this.address = '';
 
+
+
   function triggerError(response, err) {
     console.log(response);
     console.log(err);
@@ -40,10 +41,21 @@ angular.module('dft')
   this.addAddress = function() {
     console.log(accessor.address);
 
+    var ms = new MapService();
+    ms.getType(accessor.address, 'administrative_area_level_1').then(function(state){
+      console.log (state);
+    });
+
+    ms.getCoords(accessor.address).then(function(coords){
+      var position = new google.maps.LatLng(coords.A, coords.F);
+      accessor.latlong = position;
+    });
+
     geocoder.geocode({'address': accessor.address}, function(res, status) {
       var coords;
       var position;
       if (status === 'OK') {
+        console.log(res);
         coords = res[0].geometry.location;
         position = new google.maps.LatLng(coords.A, coords.F);
         accessor.latlong = position;
