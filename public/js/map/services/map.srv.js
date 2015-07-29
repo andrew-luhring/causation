@@ -26,8 +26,8 @@ angular.module('dft').service('MapService', ['$q', function($q) {
 
 
   /**
-   * @param [string] - address - the address to search for
-   * @param [string] - addressComponentType - @link https://developers.google.com/maps/documentation/geocoding/intro#Types
+   * @param {string} - address - the address to search for
+   * @param {string} - addressComponentType - @link https://developers.google.com/maps/documentation/geocoding/intro#Types
    * @returns {Promise}
    */
   MapService.prototype.getType = function(address, addressComponentType){
@@ -51,6 +51,15 @@ angular.module('dft').service('MapService', ['$q', function($q) {
     });
     return deferred.promise;
   };
+
+  /**
+   * get the state of a given address/ address component
+   * @param {string} address
+   * @returns {Promise}
+   */
+  MapService.prototype.getState = function(address){
+    return this.getType(address, 'administrative_area_level_1');
+  }
 
   return MapService;
 

@@ -15,14 +15,15 @@
   <label>
     <span class="blind">Postal Code</span>
     <input placeholder="Postal Code" ng-model="address.modelobj.address.postal" ng-required="true"
-           ng-blur="address.getState()" type="text" />
+           ng-change="address.tryGetState()" type="text" />
   </label>
   <output>
-    <div>{{ address.street }}</div>
-    <div>{{ address.unit }}</div>
+    <div>{{ address.modelobj.address.street }}</div>
+    <div>{{ address.modelobj.address.unit }}</div>
     <div>
-      <span>{{ address.city }}</span>
-      <span>{{ address.state }}</span>
+      <span>{{ address.modelobj.address.city }},</span>
+      <span>{{ address.modelobj.address.state }}</span>
+      <span>{{ address.modelobj.address.postal }}</span>
     </div>
   </output>
 </fieldset>
