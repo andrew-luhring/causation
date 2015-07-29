@@ -18,7 +18,7 @@ need to store the data
 angular.module('dft').controller('MapCtrl', ['$scope', 'MapService', function($scope, MapService) {
   'use strict';
   var accessor = this;
-  var home = new google.maps.LatLng(0,0);
+  var home = new google.maps.LatLng(0, 0);
   var mapOptions = {
       center: home
     ,	zoom: 1
@@ -35,7 +35,7 @@ angular.module('dft').controller('MapCtrl', ['$scope', 'MapService', function($s
 
   this.addAddress = function() {
     var ms = new MapService();
-    ms.getCoords(accessor.address).then(function(coords){
+    ms.getCoords(accessor.address).then(function(coords) {
       var position = new google.maps.LatLng(coords.A, coords.F);
       accessor.latlong = position;
       var newMarker = new google.maps.Marker({

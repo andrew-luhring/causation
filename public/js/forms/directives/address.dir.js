@@ -8,7 +8,7 @@ angular.module('dft')
     }
     , restrict: 'E'
     , templateUrl: '/js/forms/views/partials/address.html'
-    , controller : 'AddressCtrl'
+    , controller: 'AddressCtrl'
     , controllerAs: 'address'
   };
 });

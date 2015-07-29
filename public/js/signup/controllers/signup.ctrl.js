@@ -5,7 +5,7 @@ angular.module('dft').controller('SignupCtrl', ['$scope', '$http', function($sco
     firstname: ''
   , lastname: ''
   , email: ''
-  , phone : {
+  , phone: {
       number: ''
     , type: ''
     , context: ''
@@ -14,13 +14,13 @@ angular.module('dft').controller('SignupCtrl', ['$scope', '$http', function($sco
     street: ''
     , unit: ''
     , city: ''
-    , postal:''
+    , postal: ''
   }
   };
   this.patient = {
     firstname: ''
   , lastname: ''
-  , phone : {
+  , phone: {
       number: ''
     , type: ''
     , context: ''
@@ -29,12 +29,11 @@ angular.module('dft').controller('SignupCtrl', ['$scope', '$http', function($sco
       street: ''
     , unit: ''
     , city: ''
-    , postal:''
+    , postal: ''
     }
   };
 
-
-  this.submit = function(){
+  this.submit = function() {
 
   };
 }]);

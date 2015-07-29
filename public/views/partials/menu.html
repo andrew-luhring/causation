@@ -1,4 +1,4 @@
-<ul class="top-nav menu columns container">
+<ul class="top-nav menu rows container">
   <li class="menuitem" ng-repeat="menuitem in menu.links">
     <a class="menulink" ui-sref="{{menuitem.url}}" >{{ menuitem.text }}</a >
     <ul class="subnav" ng-if="menuitem.children.length > 0">

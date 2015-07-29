@@ -19,7 +19,7 @@
     "requireCamelCaseOrUpperCaseIdentifiers": true,
     "maximumLineLength": {
       "value": 120,
-      "allExcept": ["comments", "regex"]
+      "allExcept": ["comments", "regex", "urlComments"]
     },
     "validateQuoteMarks": {
       "mark": "'",
