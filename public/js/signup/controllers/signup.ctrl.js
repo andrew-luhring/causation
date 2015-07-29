@@ -1,4 +1,4 @@
-angular.module('dft').controller('SignupCtrl', function($scope) {
+angular.module('dft').controller('SignupCtrl', ['$scope', '$http', function($scope, $http) {
   'use strict';
 
   this.person = {
@@ -34,4 +34,7 @@ angular.module('dft').controller('SignupCtrl', function($scope) {
   };
 
 
-});
+  this.submit = function(){
+
+  };
+}]);

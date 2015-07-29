@@ -1,27 +1,8 @@
-<style >
-  #nav_hide{ display: none;}
-  .blind{
-    position: absolute;
-    z-index: -2;
-  }
-  .wrapper{
-    display: flex;
-  }
-  .row{
-    flex-direction: row;
-  }
-  .column{
-  flex-direction: column;
-  }
-  .signup .ng-invalid.ng-touched {
-    border-color: #FA787E;
-    border-style: solid;
-  }
-</style >
+
 <section>
   <h1>Here's what we need.</h1>
-  <form name="signup" class="signup wrapper column" novalidate >
-    <fieldset class="form-group wrapper column">
+  <form name="signup" class="signup wrapper columns" novalidate >
+    <fieldset class="form-group wrapper columns">
       <legend>Your Name</legend>
       <label>
         <span class="blind">First name.</span>
@@ -64,7 +45,7 @@
             <option value="none">None of the above</option >
           </select >
         </fieldset>
-        <fieldset class="form-group wrapper column">
+        <fieldset class="form-group wrapper columns">
           <legend>Is the person still living?</legend>
           <label><span>Yes</span>
             <input ng-model="signupctrl.person.alive" ng-required="!signupctrl.person.alive" ng-value="true" type="radio"/></label>
@@ -76,7 +57,7 @@
             <small>(or the contact information of the <a href="#">authorized</a> person where we can verify
             their information.)</small>
 
-            <fieldset class="form-group wrapper column">
+            <fieldset class="form-group wrapper columns">
               <legend>Their Name</legend>
               <label>
                 <span class="blind">First name.</span>

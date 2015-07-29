@@ -97,16 +97,27 @@ body {
 	padding: 0 5rem;
 }
 
-.container {
+.container, .wrapper {
 	display: flex;
 }
 
-.rows {
-	flex-direction: column;
+.blind, .accessibility{
+  position: absolute;
+  z-index: -2;
 }
 
+.row(){
+  flex-direction: row;
+}
+.column(){
+  flex-direction: column;
+}
+
+.rows {
+	.row();
+}
 .columns {
-	flex-direction: row;
+  .column();
 }
 
 .menuitem {

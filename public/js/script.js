@@ -24,7 +24,7 @@ angular.module('dft', ['ngSanitize', 'ui.router'])
     , url: '/about'
     })
     .state('data', {
-      templateUrl: '/js/forms/views/layouts/data.html'
+      templateUrl: '/js/signup/views/layouts/data.html'
     , url: '/data'
     , controller: 'SignupCtrl'
     , controllerAs: 'signupctrl'

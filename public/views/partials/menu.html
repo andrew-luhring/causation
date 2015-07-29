@@ -1,11 +1,14 @@
-	<ul class="top-nav menu columns container">
-		<li class="menuitem" ng-repeat="menuitem in menu.links">
-			<a class="menulink" ui-sref="{{menuitem.url}}" >{{ menuitem.text }}</a >
-			<ul class="subnav" ng-if="menuitem.children.length > 0">
-				<li class="menuitem" ng-repeat="childmenu in menuitem.children">
-					<a ui-sref="{{childmenu.url}}" >{{ childmenu.text }}</a >
-				</li>
-			</ul>
-		</li>
-	</ul>
-	<button id="nav_hide">≫</button>
+<ul class="top-nav menu columns container">
+  <li class="menuitem" ng-repeat="menuitem in menu.links">
+    <a class="menulink" ui-sref="{{menuitem.url}}" >{{ menuitem.text }}</a >
+    <ul class="subnav" ng-if="menuitem.children.length > 0">
+      <li class="menuitem" ng-repeat="childmenu in menuitem.children">
+        <a ui-sref="{{childmenu.url}}" >{{ childmenu.text }}</a >
+      </li>
+    </ul>
+  </li>
+  <li class="show-hide">
+    <button id="nav_hide">≫</button>
+  </li>
+</ul>
+
