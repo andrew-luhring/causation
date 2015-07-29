@@ -7,11 +7,8 @@ angular.module('dft')
     , label: '@'
     }
     , restrict: 'E'
-    , templateUrl: '/views/partials/form-partials/address.html'
-    , controller : function($scope){
-      this.label = $scope.label;
-      this.modelobj = $scope.modelobj;
-    }
+    , templateUrl: '/js/forms/views/partials/address.html'
+    , controller : 'AddressCtrl'
     , controllerAs: 'address'
   };
 });

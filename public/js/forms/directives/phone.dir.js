@@ -6,7 +6,7 @@ angular.module('dft').directive('phone', function() {
    ,  label: '@'
    }
    , restrict: 'E'
-   , templateUrl: '/views/partials/form-partials/phone.html'
+   , templateUrl: '/js/forms/views/partials/phone.html'
    , controller : function($scope){
      var that = this;
      this.label = $scope.label;
