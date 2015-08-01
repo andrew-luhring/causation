@@ -14,10 +14,17 @@ angular.module('dft').service('MapService', ['$q', function($q) {
     var deferred = $q.defer();
 
     this.geocoder.geocode({'address': address}, function(res, status) {
+      var arr = [];
+      var location = res[0].geometry.location;
       if (status !== 'OK') {
         triggerError(res, status);
       }
-      deferred.resolve(res[0].geometry.location);
+      for (var i in location) {
+        if (location.hasOwnProperty(i)) {
+         arr.push(location[i]);
+        }
+      }
+      deferred.resolve(arr);
     });
     return deferred.promise;
   };

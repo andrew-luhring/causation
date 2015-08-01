@@ -36,7 +36,7 @@ angular.module('dft').controller('MapCtrl', ['$scope', 'MapService', function($s
   this.addAddress = function() {
     var ms = new MapService();
     ms.getCoords(accessor.address).then(function(coords) {
-      var position = new google.maps.LatLng(coords.A, coords.F);
+      var position = new google.maps.LatLng(coords[0], coords[1]);
       accessor.latlong = position;
       var newMarker = new google.maps.Marker({
         map: map
