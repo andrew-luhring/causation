@@ -1,13 +1,14 @@
-
 <section>
-  <h1>Here's what we need.</h1>
+  <h1 class="h2">Here's what we need.</h1>
   <form name="signup" class="signup wrapper columns" novalidate >
     <fieldset class="form-group wrapper columns">
-      <legend>Your Name</legend>
+      <legend class="h4">Your Name</legend>
+      {{ names }}
+      <standard-input obj="input" ng-repeat="input in signupctrl.names"></standard-input>
+{{ signupctrl.person.firstname }}
       <label>
         <span class="blind">First name.</span>
-        <input type="text" placeholder="First Name" ng-model="signupctrl.person.firstname" name="firstname"
-               ng-required="true" />
+        <input type="text" placeholder="First Name" ng-model="signupctrl.person.firstname" name="firstname" ng-required="true" />
       </label>
       <label>
         <span class="blind">Last name.</span>
@@ -29,8 +30,8 @@
     </fieldset>
     <fieldset>
       <legend>Are you the person with the illness?</legend>
-      <label><span>No.</span> <input ng-model="signupctrl.person.isPatient" ng-value="{{true}}" type="checkbox" /></label>
-      <div ng-if="signupctrl.person.isPatient">
+      <label><span>No.</span><input ng-model="signupctrl.person.notPatient" ng-value="{{true}}" type="checkbox" /></label>
+      <div ng-if="signupctrl.person.notPatient">
         <fieldset>
           <legend>What is your relationship to the patient?</legend>
           <select ng-model="signupctrl.person.relationship" name="relationship" id="relationship" ng-required="true" >
@@ -76,7 +77,6 @@
         </fieldset>
       </div>
     </fieldset>
-    {{signupctrl }}
-    <button ng-disabled="signup.$invalid" class="btn btn-default">Submit</button>
+    <button ng-disabled="signup.$invalid" class="btn btn-default" ng-click="signupctrl.submit()" >Submit</button>
   </form >
 </section>

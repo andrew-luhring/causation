@@ -1,0 +1,2 @@
+- [ ]  case duplication
+- [ ]  talk to jayne stommel going about speaking to state and fed about how to get grant funding and tax
