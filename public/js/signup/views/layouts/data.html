@@ -1,25 +1,13 @@
-
 <section>
-  <h1>Here's what we need.</h1>
+  <h1 class="h2">Here's what we need.</h1>
   <form name="signup" class="signup wrapper columns" novalidate >
     <fieldset class="form-group wrapper columns">
-      <legend>Your Name</legend>
-      <label>
-        <span class="blind">First name.</span>
-        <input type="text" placeholder="First Name" ng-model="signupctrl.person.firstname" name="firstname"
-               ng-required="true" />
-      </label>
-      <label>
-        <span class="blind">Last name.</span>
-        <input type="text" placeholder="Last Name" ng-model="signupctrl.person.lastname" name="lastname" required />
-      </label>
+      <legend class="h4">Your Name</legend>
+      <standard-input obj="nameInput" ng-repeat="nameInput in signupctrl.nameInputs"></standard-input>
     </fieldset>
     <fieldset>
       <legend>Your Contact Info</legend>
-      <label>
-        <span class="blind">Email.</span>
-        <input placeholder="Email" type="email" name="email" ng-model="signupctrl.person.email" ng-required="true" />
-      </label>
+      <standard-input obj="contactInput" ng-repeat="contactInput in signupctrl.contactInputs"></standard-input>
       <div class="tooltip">
         <p>We only want to know for confirmation purposes, if you <em>want</em> to sign up for our newsletter, there is a
          different place to fill that out. </p>
@@ -29,8 +17,8 @@
     </fieldset>
     <fieldset>
       <legend>Are you the person with the illness?</legend>
-      <label><span>No.</span> <input ng-model="signupctrl.person.isPatient" ng-value="{{true}}" type="checkbox" /></label>
-      <div ng-if="signupctrl.person.isPatient">
+      <label><span>No.</span><input ng-model="signupctrl.person.notPatient" ng-value="{{true}}" type="checkbox" /></label>
+      <div ng-if="signupctrl.person.notPatient">
         <fieldset>
           <legend>What is your relationship to the patient?</legend>
           <select ng-model="signupctrl.person.relationship" name="relationship" id="relationship" ng-required="true" >
@@ -76,7 +64,6 @@
         </fieldset>
       </div>
     </fieldset>
-    {{signupctrl }}
-    <button ng-disabled="signup.$invalid" class="btn btn-default">Submit</button>
+    <button ng-disabled="signup.$invalid" class="btn btn-default" ng-click="signupctrl.submit()" >Submit</button>
   </form >
 </section>

@@ -1,0 +1,17 @@
+<label>
+  <span class="blind">{{ inputCtrl.instance.label }}</span>
+
+  <input
+    name="{{inputCtrl.instance.name}}"
+    ng-model="inputCtrl[inputCtrl.instance.model]"
+    ng-required="{{inputCtrl.instance.required}}"
+    placeholder="{{inputCtrl.instance.placeholder}}"
+    type="{{inputCtrl.instance.type}}"
+    class="{{inputCtrl.instance.class}}"
+    />
+  <output ng-if="inputCtrl.showDebug">
+    <pre>
+      {{ inputCtrl[inputCtrl.instance.model] }}
+    </pre>
+  </output>
+</label>

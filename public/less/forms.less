@@ -1,4 +1,22 @@
 .signup .ng-invalid.ng-touched {
-  border-color: #FA787E;
+  border-color: @red;
   border-style: solid;
+  &:focus{
+    border-color: transparent;
+  }
+}
+input{
+  padding-left: 5px;
+  font-weight:300;
+  text-transform: capitalize;
+}
+input[type='email']{
+  text-transform: none;
+}
+input:focus{
+  outline-color: @blue;
+}
+.mapsform{
+  margin-top: 80px;
+  margin-bottom: 20px;
 }

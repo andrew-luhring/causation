@@ -12,6 +12,7 @@ angular.module('dft').directive('phone', function() {
      this.label = $scope.label;
      this.modelobj = $scope.modelobj;
      this.formatNumber = function() {
+       //todo fix this
        var str = that.modelobj.phone.number || '';
 
        if (str.length === 3) {
