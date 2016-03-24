@@ -3,11 +3,15 @@
 
   <input
     name="{{inputCtrl.instance.name}}"
-    ng-model="inputCtrl.instance.model"
+    ng-model="inputCtrl[inputCtrl.instance.model]"
     ng-required="{{inputCtrl.instance.required}}"
     placeholder="{{inputCtrl.instance.placeholder}}"
     type="{{inputCtrl.instance.type}}"
     class="{{inputCtrl.instance.class}}"
     />
-  {{ inputCtrl.instance.model }}
+  <output ng-if="inputCtrl.showDebug">
+    <pre>
+      {{ inputCtrl[inputCtrl.instance.model] }}
+    </pre>
+  </output>
 </label>
