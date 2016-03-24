@@ -3,24 +3,11 @@
   <form name="signup" class="signup wrapper columns" novalidate >
     <fieldset class="form-group wrapper columns">
       <legend class="h4">Your Name</legend>
-      {{ names }}
-      <standard-input obj="input" ng-repeat="input in signupctrl.names"></standard-input>
-{{ signupctrl.person.firstname }}
-      <label>
-        <span class="blind">First name.</span>
-        <input type="text" placeholder="First Name" ng-model="signupctrl.person.firstname" name="firstname" ng-required="true" />
-      </label>
-      <label>
-        <span class="blind">Last name.</span>
-        <input type="text" placeholder="Last Name" ng-model="signupctrl.person.lastname" name="lastname" required />
-      </label>
+      <standard-input obj="nameInput" ng-repeat="nameInput in signupctrl.nameInputs"></standard-input>
     </fieldset>
     <fieldset>
       <legend>Your Contact Info</legend>
-      <label>
-        <span class="blind">Email.</span>
-        <input placeholder="Email" type="email" name="email" ng-model="signupctrl.person.email" ng-required="true" />
-      </label>
+      <standard-input obj="contactInput" ng-repeat="contactInput in signupctrl.contactInputs"></standard-input>
       <div class="tooltip">
         <p>We only want to know for confirmation purposes, if you <em>want</em> to sign up for our newsletter, there is a
          different place to fill that out. </p>
